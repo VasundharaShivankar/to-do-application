@@ -1,0 +1,15 @@
+.container{
+    display: block;
+    margin:20px auto;
+    width: 500px;
+    height: 600px;
+    border: 2px solid black;
+    border-radius:5px;
+}
+
+.task-container{
+    display:flex;
+    justify-content: center;
+    margin-top:20px;
+    
+}
