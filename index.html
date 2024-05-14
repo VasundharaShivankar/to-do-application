@@ -10,15 +10,40 @@
 </head>
 <body>
     <h1 class="text-center mt-3">TO-DO APPLICATION</h1>
-<div class="container">
-    <div class="task-container mt-3">
-
+    <div class="container" id="container">
+        <div class="todo-item text-start"></div>
     </div>
-    <input type="text" class="input"/>
-    <button onclick="renderToDo()" type="button" class="btn btn-warning">Add</button>
-</div>
+    <div class="action-container mt-3">
+        <input type="text" class="input" id="input-todo"/>
+        <button onclick="add()" type="button" class="btn btn-warning">Add</button>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        let todoList=[];
+        function add() {
+            const inputToDo = document.getElementById("input-todo");
+            const task = inputToDo.value;
+            if (task!== "") {
+                todoList.push(task);
+                renderToDo();
+                inputToDo.value = ""; 
+            }
+        }
+
+        function renderToDo() {
+            const container = document.getElementById("container");
+            container.innerHTML = ""; 
+
+            for (const todoItem of todoList) {
+                container.innerHTML += `
+                    <div class="todo-item">
+                        <input type="checkbox">
+                        <span>${todoItem}</span>
+                    </div>`;
+            }
+        }
+    </script>
 </body>
 </html>
