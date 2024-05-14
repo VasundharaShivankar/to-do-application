@@ -6,6 +6,7 @@
     border: 2px solid black;
     border-radius:5px;
     overflow-y: scroll;
+    background-color: white;
 }
 
 .todo-item{
@@ -29,4 +30,5 @@
     width: 400px;
     height: 40px;
     margin-left: 30px;
+    font-size: 20px;
 }
