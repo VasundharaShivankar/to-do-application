@@ -22,13 +22,21 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         let todoList=[];
+        const listFromLocalStorage= localStorage.getItem("todoList");
+        console.log(listFromLocalStorage);
+        if(listFromLocalStorage){
+            todoList=JSON.parse(listFromLocalStorage);
+            renderToDo();
+        }
+
         function add() {
             const inputToDo = document.getElementById("input-todo");
             const task = inputToDo.value;
             if (task!== "") {
                 todoList.push(task);
-                renderToDo();
+                localStorage.setItem("todoList",JSON.stringify(todoList))
                 inputToDo.value = ""; 
+                renderToDo();
             }
         }
 
